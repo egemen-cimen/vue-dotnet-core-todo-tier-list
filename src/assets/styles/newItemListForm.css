@@ -1,0 +1,14 @@
+
+.add-item-list input {
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #ff8344;
+    width: 100%;
+    transition: all 0.25s;
+    background: inherit;
+    color: black;
+}
+
+.add-item-list input:focus {
+    border-bottom-color: #7ba776;
+}

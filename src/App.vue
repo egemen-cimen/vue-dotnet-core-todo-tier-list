@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="page-header">
-      <h1>Todo Tier List</h1>
-      <p class="lead">It's a todo tier list which works like a kanban board.</p>
+      <h1>To-do Tier List</h1>
+      <p class="lead">It's a to-do tier list which works like a kanban board.</p>
     </div>
     <router-view />
     <p>Egemen Çimen - 2020</p>
@@ -14,8 +14,7 @@ export default {
 };
 </script>
 <style>
-
-@import './app.css';
+@import "./app.css";
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
