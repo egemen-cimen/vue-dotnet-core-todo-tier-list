@@ -1,32 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="page-header">
+      <h1>Todo Tier List</h1>
+      <p class="lead">It's a todo tier list which works like a kanban board.</p>
     </div>
-    <router-view/>
+    <router-view />
+    <p>Egemen Çimen - 2020</p>
   </div>
 </template>
-
+<script>
+export default {
+  name: "app"
+};
+</script>
 <style>
+
+@import './app.css';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  color: #1e1e1e;
 }
 </style>
