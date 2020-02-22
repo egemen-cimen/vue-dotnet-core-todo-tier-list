@@ -2,7 +2,7 @@
   <div id="app">
     <div class="page-header">
       <h1>To-do Tier List</h1>
-      <p class="lead">It's a to-do list which works like a kanban board and a tier list.</p>
+      <p class="lead">A to-do list which works like a tier list within a kanban board.</p>
     </div>
     <router-view />
     <p>Egemen Çimen - 2020</p>
