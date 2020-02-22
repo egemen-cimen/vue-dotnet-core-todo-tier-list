@@ -19,3 +19,9 @@
   .menubar {
     margin-bottom: 16px;
   }
+
+  .btn:focus {
+    outline: black;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
