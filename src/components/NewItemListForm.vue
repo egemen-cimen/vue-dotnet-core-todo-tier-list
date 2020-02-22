@@ -25,9 +25,9 @@
  * The submitForm() method handles the submitting of the form.
  * A new data's send to the store via a mutation.
  * Here, a mutation called addListItem is invoked and the text
- * property is set to the value of this.itemListText.
+ * property is set to the value of this.listItemText.
  *
- * After the submission, this.itemListText's set to an empty
+ * After the submission, this.listItemText's set to an empty
  * string to allow another submission.
  *
  */
@@ -35,17 +35,17 @@ export default {
   name: "NewItemListForm",
   data() {
     return {
-      itemListText: ""
+      listItemText: ""
     };
   },
   methods: {
     submitForm() {
-      if (this.itemListText) {
+      if (this.listItemText) {
         this.$store.commit("addListItem", {
-          text: this.itemListText
+          text: this.listItemText
         });
 
-        this.itemListText = "";
+        this.listItemText= "";
       }
     }
   }
