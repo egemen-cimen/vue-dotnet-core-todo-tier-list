@@ -4,13 +4,19 @@
       <h1>To-do Tier List</h1>
       <p class="lead">A to-do list which works like a tier list within a kanban board.</p>
     </div>
+    <menu-bar></menu-bar>
     <router-view />
     <p>Egemen Çimen - 2020</p>
   </div>
 </template>
 <script>
+import MenuBar from "@/components/MenuBar";
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    "menu-bar": MenuBar
+  }
 };
 </script>
 <style>

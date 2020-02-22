@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Backlog from '@/components/Backlog';
+import KanbanTierListBoard from '@/components/KanbanTierListBoard'
 
 Vue.use(VueRouter)
 
@@ -10,27 +11,13 @@ const routes = [
 		component: Backlog,
 	},
 	{
+		path: '/board',
+		component: KanbanTierListBoard,
+	},
+	{
 		path: '*',
 		redirect: '/backlog',
 	},
-	// {
-	//   path: '/',
-	//   name: 'Default',
-	//   // component: Home
-	// },
-	// {
-	//   path: '/',
-	//   name: 'Home',
-	//   component: Home
-	// },
-	// {
-	//   path: '/about',
-	//   name: 'About',
-	//   // route level code-splitting
-	//   // this generates a separate chunk (about.[hash].js) for this route
-	//   // which is lazy-loaded when the route is visited.
-	//   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-	// }
 ]
 
 const router = new VueRouter({
