@@ -7,7 +7,7 @@
       <input
         type="text"
         v-model="listItemText"
-        placeholder="Add something to the todo tier list's backlog"
+        placeholder="Add a task to the to-do tier list's backlog"
       />
     </form>
   </div>
