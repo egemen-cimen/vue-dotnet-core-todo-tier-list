@@ -27,7 +27,7 @@ export default {
     "new-item-list": NewItemListForm
   },
   computed: mapState({
-    items: s => s.items.todoItems
+    items: s => s.items.backlogItems
   })
 };
 </script>

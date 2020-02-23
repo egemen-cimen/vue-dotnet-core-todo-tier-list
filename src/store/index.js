@@ -13,14 +13,16 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         items: {
+            backlogItems: [],
             todoItems: [],
+            doneItems: []
         },
         itemId: 0,
     },
     mutations: {
         addListItem(state, item) {
             state.itemId += 1;
-            state.items.todoItems.push(Object.assign(item, { id: state.itemId}));
+            state.items.backlogItems.push(Object.assign(item, { id: state.itemId }));
         }
     },
 });

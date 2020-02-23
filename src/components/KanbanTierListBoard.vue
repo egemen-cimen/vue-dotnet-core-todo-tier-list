@@ -2,7 +2,13 @@
   <div class="board">
     <div class="row">
       <div class="col-md">
-        <task-column id="backlog" title="Backlog" :items="todoListItems"></task-column>
+        <task-column id="backlog" title="Backlog" :items="backlogListItems"></task-column>
+      </div>
+      <div class="col-md">
+        <task-column id="todo" title="To-do" :items="todoListItems"></task-column>
+      </div>
+      <div class="col-md">
+        <task-column id="done" title="Done" :items="doneListItems"></task-column>
       </div>
     </div>
   </div>
@@ -15,10 +21,12 @@ import TaskColumn from "@/components/TaskColumn";
 export default {
   name: "KanbanTierListBoard",
   components: {
-    "task-column": TaskColumn,
+    "task-column": TaskColumn
   },
   computed: mapState({
-    todoListItems: s => s.items.todoItems
+    backlogListItems: s => s.items.backlogItems,
+    todoListItems: s => s.items.todoItems,
+    doneListItems: s => s.items.doneItems
   })
 };
 </script>
