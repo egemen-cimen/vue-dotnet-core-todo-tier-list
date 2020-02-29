@@ -45,7 +45,7 @@ export default {
           text: this.listItemText
         });
 
-        this.listItemText= "";
+        this.listItemText = "";
       }
     }
   }

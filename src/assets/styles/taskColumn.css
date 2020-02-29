@@ -1,35 +1,39 @@
  .card-body>* {
-     min-height: 10px;
+    min-height: 10px;
  }
 
  .card-footer {
-color:#1F1F1F !important
+    color: #1f1f1f !important
  }
 
  .card-sTier {
-    background-color: #FF7676;
+    background-color: #ff7676;
  }
 
  .card-aTier {
-    background-color: #FFE38D;
+    background-color: #ffe38d;
  }
 
  .card-bTier {
-    background-color: #C3FF89;
+    background-color: #c3ff89;
  }
 
  .card-cTier {
-    background-color: #76F8F8;
+    background-color: #76f8f8;
  }
 
  .card-dTier {
-    background-color: #9898FF;
+    background-color: #9898ff;
  }
 
- .card-done{
-    background-color: #FFBAFE;
+ .card-done {
+    background-color: #ffbafe;
  }
 
- .card-backlog{
-    background-color: #9DF89D;
+ .card-backlog {
+    background-color: #8fc7ff;
+ }
+
+ .card-trashed {
+    background-color: #749e9e;
  }

@@ -2,7 +2,13 @@
   <div class="board">
     <div class="row">
       <div class="col-md">
-        <task-column id="backlogItems" title="Backlog" class="card-backlog" :items="backlogListItems"></task-column>
+        <task-column
+          id="backlogItems"
+          title="Backlog"
+          class="card-backlog"
+          :items="backlogListItems"
+        ></task-column>
+        <task-column id="trashedItems" title="Trash" class="card-trashed" :items="trashedListItems"></task-column>
       </div>
       <div class="col-md">
         <task-column id="sTodoItems" title="S Tier" class="card-sTier" :items="sTodoListItems"></task-column>
@@ -34,7 +40,8 @@ export default {
     bTodoListItems: s => s.items.bTodoItems,
     cTodoListItems: s => s.items.cTodoItems,
     dTodoListItems: s => s.items.dTodoItems,
-    doneListItems: s => s.items.doneItems
+    doneListItems: s => s.items.doneItems,
+    trashedListItems: s => s.items.trashedItems
   })
 };
 </script>

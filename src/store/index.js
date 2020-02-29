@@ -19,7 +19,8 @@ export default new Vuex.Store({
             bTodoItems: [],
             cTodoItems: [],
             dTodoItems: [],
-            doneItems: []
+            doneItems: [],
+            trashedItems: []
         },
         itemId: -1,
     },
@@ -29,7 +30,8 @@ export default new Vuex.Store({
             state.items.backlogItems.push(Object.assign(item, { id: state.itemId }));
         },
         updateListItems(state, payload) {
-            state.items[payload.id] = payload.items;
+            if (state.items[payload.id] !== state.items.trashedItems)
+                state.items[payload.id] = payload.items;
         }
     },
 });
