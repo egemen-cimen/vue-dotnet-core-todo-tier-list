@@ -1,3 +1,35 @@
  .card-body>* {
-     min-height: 100px;
+     min-height: 10px;
+ }
+
+ .card-footer {
+color:#1F1F1F !important
+ }
+
+ .card-sTier {
+    background-color: #FF7676;
+ }
+
+ .card-aTier {
+    background-color: #FFE38D;
+ }
+
+ .card-bTier {
+    background-color: #C3FF89;
+ }
+
+ .card-cTier {
+    background-color: #76F8F8;
+ }
+
+ .card-dTier {
+    background-color: #9898FF;
+ }
+
+ .card-done{
+    background-color: #FFBAFE;
+ }
+
+ .card-backlog{
+    background-color: #9DF89D;
  }
