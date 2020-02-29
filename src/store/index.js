@@ -17,12 +17,15 @@ export default new Vuex.Store({
             todoItems: [],
             doneItems: []
         },
-        itemId: 0,
+        itemId: -1,
     },
     mutations: {
         addListItem(state, item) {
             state.itemId += 1;
             state.items.backlogItems.push(Object.assign(item, { id: state.itemId }));
+        },
+        updateListItems(state, payload) {
+            state.items[payload.id] = payload.items;
         }
     },
 });

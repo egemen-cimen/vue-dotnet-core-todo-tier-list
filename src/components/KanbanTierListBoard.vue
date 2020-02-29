@@ -2,13 +2,13 @@
   <div class="board">
     <div class="row">
       <div class="col-md">
-        <task-column id="backlog" title="Backlog" :items="backlogListItems"></task-column>
+        <task-column id="backlogItems" title="Backlog" :items="backlogListItems"></task-column>
       </div>
       <div class="col-md">
-        <task-column id="todo" title="To-do" :items="todoListItems"></task-column>
+        <task-column id="todoItems" title="To-do" :items="todoListItems"></task-column>
       </div>
       <div class="col-md">
-        <task-column id="done" title="Done" :items="doneListItems"></task-column>
+        <task-column id="doneItems" title="Done" :items="doneListItems"></task-column>
       </div>
     </div>
   </div>
