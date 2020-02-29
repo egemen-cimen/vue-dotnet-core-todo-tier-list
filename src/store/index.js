@@ -14,7 +14,11 @@ export default new Vuex.Store({
     state: {
         items: {
             backlogItems: [],
-            todoItems: [],
+            sTodoItems: [],
+            aTodoItems: [],
+            bTodoItems: [],
+            cTodoItems: [],
+            dTodoItems: [],
             doneItems: []
         },
         itemId: -1,
