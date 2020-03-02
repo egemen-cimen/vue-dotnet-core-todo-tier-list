@@ -20,6 +20,7 @@
 
 import { mapState } from "vuex";
 import NewItemListForm from "./NewItemListForm";
+import axios from "axios";
 
 export default {
   name: "Backlog",
@@ -27,7 +28,33 @@ export default {
     "new-item-list": NewItemListForm
   },
   computed: mapState({
-    items: s => s.items.backlogItems
-  })
+    items: s => s.items.backlogItems,
+    isStateDirty() {
+      return this.$store.state.isStateDirty;
+    }
+  }),
+  created: function() {
+    if (this.isStateDirty) {
+      this.$store.commit("setNotDirty");
+      //console.log("state was dirty, now it's: " + this.isStateDirty);
+      axios
+        .get("https://localhost:5001/TodoTierList", {
+          crossdomain: true
+        })
+        .then(response => {
+          this.data = response.data;
+          this.data.forEach(item => {
+            //console.log("id: " + item.id);
+            //console.log("text: " + item.text);
+            //console.log("status: " + item.status);
+
+            this.$store.commit("addListItem", {
+              text: item.text,
+              status: item.status
+            });
+          });
+        });
+    }
+  }
 };
 </script>

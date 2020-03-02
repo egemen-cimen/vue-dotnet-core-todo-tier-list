@@ -42,7 +42,8 @@ export default {
     submitForm() {
       if (this.listItemText) {
         this.$store.commit("addListItem", {
-          text: this.listItemText
+          text: this.listItemText,
+          status: 0
         });
 
         this.listItemText = "";
