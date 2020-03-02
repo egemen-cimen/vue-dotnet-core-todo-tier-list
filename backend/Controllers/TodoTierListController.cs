@@ -34,5 +34,17 @@ namespace backend.Controllers
             todoItems.Add(todoListItem);
             return todoListItem.Id;
         }
+
+        [HttpPost]
+        public bool Post(List<TodoListItem> todoListItems, int id)
+        {
+            foreach (var a in todoListItems)
+            {
+                Console.WriteLine(id);
+                Console.WriteLine(a.Id + " " + a.Status + " " + a.Text);
+            }
+
+            return true;
+        }
     }
 }

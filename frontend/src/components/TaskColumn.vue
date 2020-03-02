@@ -15,6 +15,8 @@
 <script>
 import TaskColumnItem from "@/components/TaskColumnItem";
 import Draggable from "vuedraggable";
+import axios from "axios";
+
 export default {
   name: "TaskColumn",
   props: ["items", "title", "id"],
@@ -33,6 +35,7 @@ export default {
         return this.items;
       },
       set(items) {
+        axios.post("https://localhost:5001/TodoTierList", items);
         this.$store.commit("updateListItems", {
           items,
           id: this.id

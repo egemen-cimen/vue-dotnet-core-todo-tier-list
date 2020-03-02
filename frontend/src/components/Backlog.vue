@@ -36,7 +36,6 @@ export default {
   created: function() {
     if (this.isStateDirty) {
       this.$store.commit("setNotDirty");
-      //console.log("state was dirty, now it's: " + this.isStateDirty);
       axios
         .get("https://localhost:5001/TodoTierList", {
           crossdomain: true
@@ -44,10 +43,6 @@ export default {
         .then(response => {
           this.data = response.data;
           this.data.forEach(item => {
-            //console.log("id: " + item.id);
-            //console.log("text: " + item.text);
-            //console.log("status: " + item.status);
-
             this.$store.commit("addListItem", {
               text: item.text,
               status: item.status
