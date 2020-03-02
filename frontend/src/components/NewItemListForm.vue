@@ -31,6 +31,9 @@
  * string to allow another submission.
  *
  */
+
+import axios from "axios";
+
 export default {
   name: "NewItemListForm",
   data() {
@@ -41,11 +44,20 @@ export default {
   methods: {
     submitForm() {
       if (this.listItemText) {
-        this.$store.commit("addListItem", {
-          text: this.listItemText,
-          status: 0
-        });
-
+        var toSend = this.listItemText;
+        axios
+          .put("https://localhost:5001/TodoTierList", {
+            Id: -1,
+            Text: this.listItemText,
+            Status: 0
+          })
+          .then(res =>
+            this.$store.commit("addListItem", {
+              text: toSend,
+              status: 0,
+              id: res.data
+            })
+          );
         this.listItemText = "";
       }
     }

@@ -26,9 +26,9 @@ export default new Vuex.Store({
         isStateDirty: true
     },
     mutations: {
-        addListItem(state, item, id) {
-            if (id && id > state.itemId) {
-                state.itemId = id
+        addListItem(state, item) {
+            if (item.id && item.id > state.itemId) {
+                state.itemId = item.id;
             }
             else {
                 state.itemId += 1;

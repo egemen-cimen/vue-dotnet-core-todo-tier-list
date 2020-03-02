@@ -33,5 +33,16 @@ namespace backend.Controllers
             })
             .ToArray();
         }
+
+        [HttpPut]
+        public int Put(TodoListItem todoListItem)
+        {
+            if (todoListItem.Id == -1)
+            {
+                Console.WriteLine(todoListItem.Text + "___" + todoListItem.Id + "___" + todoListItem.Status);
+                return 6;
+            }
+            return -1;
+        }
     }
 }
