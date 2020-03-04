@@ -22,6 +22,7 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+dist/
 
 # local env files
 .env.local
