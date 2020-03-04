@@ -12,8 +12,6 @@ namespace backend.Controllers
     public class TodoTierListController : ControllerBase
     {
         private readonly ILogger<TodoTierListController> _logger;
-        public static List<TodoListItem> todoItems = new List<TodoListItem>();
-
 
         public TodoTierListController(ILogger<TodoTierListController> logger)
         {
@@ -23,27 +21,42 @@ namespace backend.Controllers
         [HttpGet]
         public IEnumerable<TodoListItem> Get()
         {
-            return todoItems.FindAll(i => i.Status != TodoColumn.Trashed).ToArray();
+            using (var db = new TodoListItemContext())
+            {
+                var todoItems = db.TodoListItems
+                    .Where(i => i.Status != TodoColumn.Trashed)
+                    .ToList();
+                return todoItems;
+            }
         }
 
         [HttpPut]
         public int Put(TodoListItem todoListItem)
         {
-            todoListItem.Id = todoItems.Count;
-            todoItems.Add(todoListItem);
-            return todoListItem.Id;
+            using (var db = new TodoListItemContext())
+            {
+                var todoListItemId = db.TodoListItems
+                    .Where(i => i.Status != TodoColumn.Trashed)
+                    .ToList()
+                    .Count;
+
+                todoListItem.Id = todoListItemId;
+                db.TodoListItems.Add(todoListItem);
+                db.SaveChanges();
+                return todoListItemId;
+            }
         }
 
         [HttpPost]
         public bool Post(List<TodoListItem> todoListItems)
         {
             foreach (var todoItem in todoListItems)
-            {
+            {/*
                 if (todoItems[todoItem.Id].Status != todoItem.Status)
                 {
                     todoItems[todoItem.Id].Status = todoItem.Status;
                 }
-            }
+            */}
             return true;
         }
     }

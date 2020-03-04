@@ -22,6 +22,11 @@ npm run build
 
 ## Backend project setup
 
+## Creates the database
+```
+dotnet ef database update
+```
+
 ### Compiles and serves
 #### (after downloading necessary Visual Studio Code extensions)
 ```

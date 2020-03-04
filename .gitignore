@@ -6,6 +6,7 @@ nupkg/
 *.swp
 *.*~
 project.lock.json
+*.db
 
 # Build results
 [Dd]ebug/
