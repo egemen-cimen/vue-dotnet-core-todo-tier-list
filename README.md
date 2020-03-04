@@ -25,7 +25,7 @@ npm run build
 cd backend/
 ```
 
-## Creates the database
+### Creates the database
 ```
 dotnet ef database update
 ```
