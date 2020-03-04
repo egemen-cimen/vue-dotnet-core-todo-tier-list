@@ -11,10 +11,8 @@ namespace backend
 {
     public class Program
     {
-        public static List<TodoListItem> todoItems;
         public static void Main(string[] args)
         {
-            todoItems = new List<TodoListItem>();
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -12,13 +12,12 @@ namespace backend.Controllers
     public class TodoTierListController : ControllerBase
     {
         private readonly ILogger<TodoTierListController> _logger;
+        public static List<TodoListItem> todoItems = new List<TodoListItem>();
 
-        private List<TodoListItem> todoItems;
 
         public TodoTierListController(ILogger<TodoTierListController> logger)
         {
             _logger = logger;
-            todoItems = Program.todoItems;
         }
 
         [HttpGet]
@@ -43,7 +42,7 @@ namespace backend.Controllers
                 Console.WriteLine(id);
                 Console.WriteLine(a.Id + " " + a.Status + " " + a.Text);
             }
-
+            Console.WriteLine("====");
             return true;
         }
     }

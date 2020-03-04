@@ -35,11 +35,11 @@ export default {
         return this.items;
       },
       set(items) {
-        axios.post("https://localhost:5001/TodoTierList", items);
         this.$store.commit("updateListItems", {
           items,
           id: this.id
         });
+        axios.post("https://localhost:5001/TodoTierList", items);
       }
     }
   }
