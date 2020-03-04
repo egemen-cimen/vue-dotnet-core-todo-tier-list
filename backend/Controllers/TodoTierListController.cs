@@ -41,11 +41,9 @@ namespace backend.Controllers
             {
                 if (todoItems[todoItem.Id].Status != todoItem.Status)
                 {
-                    Console.WriteLine("Id for " + todoItem.Text + ": " + todoItem.Id + " (" + todoItems[todoItem.Id].Status + " -> " + todoItem.Status + ")");
                     todoItems[todoItem.Id].Status = todoItem.Status;
                 }
             }
-            Console.WriteLine("====");
             return true;
         }
     }

@@ -93,12 +93,6 @@ export default new Vuex.Store({
                 state.items[payload.id][i].status = status;
             }
 
-            /*
-            if (state.items[payload.id] === state.items.trashedItems) {
-                state.
-            }
-            */
-
         },
         setDirty(state) {
             state.isStateDirty = true;
