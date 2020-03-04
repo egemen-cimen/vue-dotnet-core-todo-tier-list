@@ -27,6 +27,7 @@
 <script>
 import { mapState } from "vuex";
 import TaskColumn from "@/components/TaskColumn";
+import axios from "axios";
 
 export default {
   name: "KanbanTierListBoard",
@@ -42,6 +43,28 @@ export default {
     dTodoListItems: s => s.items.dTodoItems,
     doneListItems: s => s.items.doneItems,
     trashedListItems: s => s.items.trashedItems
-  })
+  }),
+  isStateDirty() {
+    return this.$store.state.isStateDirty;
+  },
+  created: function() {
+    if (this.$store.state.isStateDirty) {
+      this.$store.commit("setNotDirty");
+      axios
+        .get("https://localhost:5001/TodoTierList", {
+          crossdomain: true
+        })
+        .then(response => {
+          this.data = response.data;
+          this.data.forEach(item => {
+            this.$store.commit("addListItem", {
+              text: item.text,
+              status: item.status,
+              id: item.id
+            });
+          });
+        });
+    }
+  }
 };
 </script>
