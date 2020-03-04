@@ -40,7 +40,7 @@ namespace backend.Controllers
                     .ToList()
                     .Count;
 
-                todoListItem.Id = todoListItemId;
+                todoListItem.Id = ++todoListItemId;
                 db.TodoListItems.Add(todoListItem);
                 db.SaveChanges();
                 return todoListItemId;
@@ -56,7 +56,8 @@ namespace backend.Controllers
                 {
                     todoItems[todoItem.Id].Status = todoItem.Status;
                 }
-            */}
+            */
+            }
             return true;
         }
     }
