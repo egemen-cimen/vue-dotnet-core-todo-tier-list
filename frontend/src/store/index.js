@@ -58,43 +58,46 @@ export default new Vuex.Store({
             }
         },
         updateListItems(state, payload) {
-            if (state.items[payload.id] !== state.items.trashedItems) {
-                state.items[payload.id] = payload.items;
+            state.items[payload.id] = payload.items;
 
-                var status;
-                switch (payload.id) {
-                    case "backlogItems":
-                        status = 0;
-                        break;
-                    case "sTodoItems":
-                        status = 1;
-                        break;
-                    case "aTodoItems":
-                        status = 2;
-                        break;
-                    case "bTodoItems":
-                        status = 3;
-                        break;
-                    case "cTodoItems":
-                        status = 4;
-                        break;
-                    case "dTodoItems":
-                        status = 5;
-                        break;
-                    case "doneItems":
-                        status = 6;
-                        break;
-                    default:
-                        break;
-                }
-
-                for (var i = 0; i < state.items[payload.id].length; i++) {
-
-                    state.items[payload.id][i].status = status;
-                }
-
+            var status;
+            switch (payload.id) {
+                case "backlogItems":
+                    status = 0;
+                    break;
+                case "sTodoItems":
+                    status = 1;
+                    break;
+                case "aTodoItems":
+                    status = 2;
+                    break;
+                case "bTodoItems":
+                    status = 3;
+                    break;
+                case "cTodoItems":
+                    status = 4;
+                    break;
+                case "dTodoItems":
+                    status = 5;
+                    break;
+                case "doneItems":
+                    status = 6;
+                    break;
+                default:
+                    status = 7;
+                    break;
             }
 
+            for (var i = 0; i < state.items[payload.id].length; i++) {
+
+                state.items[payload.id][i].status = status;
+            }
+
+            /*
+            if (state.items[payload.id] === state.items.trashedItems) {
+                state.
+            }
+            */
 
         },
         setDirty(state) {

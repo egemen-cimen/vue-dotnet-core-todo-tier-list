@@ -1,6 +1,6 @@
 namespace backend
 {
-    public enum TodoColumn 
+    public enum TodoColumn
     {
         Backlog,
         STier,
@@ -8,7 +8,7 @@ namespace backend
         BTier,
         CTier,
         DTier,
-        Done
-
+        Done,
+        Trashed
     }
 }

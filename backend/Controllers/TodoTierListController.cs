@@ -35,12 +35,15 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        public bool Post(List<TodoListItem> todoListItems, int id)
+        public bool Post(List<TodoListItem> todoListItems)
         {
-            foreach (var a in todoListItems)
+            foreach (var todoItem in todoListItems)
             {
-                Console.WriteLine(id);
-                Console.WriteLine(a.Id + " " + a.Status + " " + a.Text);
+                if (todoItems[todoItem.Id].Status != todoItem.Status)
+                {
+                    Console.WriteLine("Id for " + todoItem.Text + ": " + todoItem.Id + " (" + todoItems[todoItem.Id].Status + " -> " + todoItem.Status + ")");
+                    todoItems[todoItem.Id].Status = todoItem.Status;
+                }
             }
             Console.WriteLine("====");
             return true;
