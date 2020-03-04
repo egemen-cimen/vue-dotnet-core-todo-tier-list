@@ -35,14 +35,18 @@ namespace backend.Controllers
         {
             using (var db = new TodoListItemContext())
             {
-                var todoListItemId = db.TodoListItems
-                    .Where(i => i.Status != TodoColumn.Trashed)
-                    .ToList()
-                    .Count;
+                var lastTodoListItem = db.TodoListItems
+                    .ToList().LastOrDefault();
+                int todoListItemId = 0;
 
+                if (lastTodoListItem != null)
+                {
+                    todoListItemId = lastTodoListItem.Id;
+                }
                 todoListItem.Id = ++todoListItemId;
                 db.TodoListItems.Add(todoListItem);
                 db.SaveChanges();
+
                 return todoListItemId;
             }
         }
@@ -50,15 +54,22 @@ namespace backend.Controllers
         [HttpPost]
         public bool Post(List<TodoListItem> todoListItems)
         {
-            foreach (var todoItem in todoListItems)
-            {/*
-                if (todoItems[todoItem.Id].Status != todoItem.Status)
+
+            using (var db = new TodoListItemContext())
+            {
+                foreach (var todoItem in todoListItems)
                 {
-                    todoItems[todoItem.Id].Status = todoItem.Status;
+                    var dbTodoItem = db.TodoListItems
+                        .Where(i => i.Status != todoItem.Status && i.Id == todoItem.Id);
+
+                    if (dbTodoItem != null && dbTodoItem.Count() > 0)
+                    {
+                        dbTodoItem.First().Status = todoItem.Status;
+                    }
                 }
-            */
+                db.SaveChanges();
+                return true;
             }
-            return true;
         }
     }
 }

@@ -21,6 +21,9 @@ npm run build
 ```
 
 ## Backend project setup
+```
+cd backend/
+```
 
 ## Creates the database
 ```
