@@ -23,7 +23,7 @@ namespace backend.Controllers
         [HttpGet]
         public IEnumerable<TodoListItem> Get()
         {
-            return todoItems.ToArray();
+            return todoItems.FindAll(i => i.Status != TodoColumn.Trashed).ToArray();
         }
 
         [HttpPut]

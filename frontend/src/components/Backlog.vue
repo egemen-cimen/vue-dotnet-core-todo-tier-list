@@ -45,7 +45,8 @@ export default {
           this.data.forEach(item => {
             this.$store.commit("addListItem", {
               text: item.text,
-              status: item.status
+              status: item.status,
+              id: item.id
             });
           });
         });
